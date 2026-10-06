@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دعوة زفاف</title>
+<meta name="description" content="يسعدنا دعوتكم لحضور حفل زفافنا — الأربعاء ١٤ أكتوبر، قاعة القصر">
+<meta property="og:title" content="دعوة زفاف 💍">
+<meta property="og:description" content="الأربعاء ١٤ أكتوبر — قاعة القصر">
+<meta property="og:image" content="couple.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#fbf6ef; --ivory-deep:#f3eadf; --paper:#fffdf9;
+    --blush:#efd3d6; --rose:#b8606f; --rose-deep:#8f3f4e;
+    --gold:#c2a06a; --gold-ink:#7d5f2c; --sage:#8d9c7f;
+    --ink:#3a2c28; --muted:#6e5d57; --hairline:#e3d5c3;
+    --radius-arch:999px 999px 24px 24px; --radius-md:16px; --radius-pill:999px;
+    --serif:"Amiri", "Times New Roman", serif; --sans:"Tajawal", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  body.locked{overflow:hidden}
+
+  /* ---------- opening envelope ---------- */
+  .gate{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:24px;background:
+      radial-gradient(120% 80% at 50% 0%, var(--paper) 0%, var(--ivory) 55%, var(--ivory-deep) 100%);
+    transition:opacity .9s ease, visibility .9s ease}
+  .gate.open{opacity:0;visibility:hidden}
+  .gate-inner{text-align:center;max-width:360px}
+  .seal{width:112px;height:112px;margin:0 auto 28px;border-radius:50%;display:grid;place-items:center;
+    background:var(--rose);color:var(--paper);font-family:var(--serif);font-size:44px;line-height:1;
+    box-shadow:0 0 0 6px var(--ivory),0 0 0 7px var(--gold)}
+  .gate h1{font-family:var(--serif);font-weight:400;font-size:40px;line-height:1.3;color:var(--ink)}
+  .gate p{color:var(--muted);margin:8px 0 32px}
+  .btn{display:inline-flex;align-items:center;gap:10px;border:0;cursor:pointer;font:500 17px/1 var(--sans);
+    padding:16px 30px;border-radius:var(--radius-pill);background:var(--rose-deep);color:var(--paper);
+    transition:transform .2s ease, background .2s ease;text-decoration:none}
+  .btn:hover{background:var(--rose);transform:translateY(-1px)}
+  .btn:focus-visible,.music:focus-visible{outline:3px solid var(--gold-ink);outline-offset:3px}
+  .btn.ghost{background:transparent;color:var(--rose-deep);box-shadow:inset 0 0 0 1.5px var(--rose-deep)}
+  .btn.ghost:hover{background:var(--blush)}
+
+  /* ---------- layout ---------- */
+  main{max-width:560px;margin:0 auto;padding:56px 20px 40px;position:relative;z-index:1}
+  section{text-align:center;margin-bottom:64px}
+  .ornament{display:block;margin:0 auto;width:140px;height:24px;color:var(--gold)}
+  .eyebrow{font-size:14px;letter-spacing:.02em;color:var(--gold-ink);font-weight:500}
+  .verse{font-family:var(--serif);font-size:22px;line-height:1.9;color:var(--ink);margin:18px auto 6px;max-width:30ch}
+  .verse-ref{font-size:13px;color:var(--muted)}
+
+  .arch{position:relative;width:min(100%,380px);margin:36px auto 0;padding:10px;border-radius:var(--radius-arch);
+    background:var(--paper);box-shadow:0 0 0 1px var(--hairline),0 24px 48px -28px rgba(58,44,40,.35)}
+  .arch img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 62%;border-radius:var(--radius-arch)}
+  .arch::after{content:"";position:absolute;inset:-9px;border-radius:var(--radius-arch);border:1px solid var(--gold);pointer-events:none}
+
+  h2{font-family:var(--serif);font-weight:400;font-size:44px;line-height:1.25;color:var(--ink);margin-top:36px}
+  .lead{color:var(--muted);font-size:18px;margin-top:10px}
+
+  .card{background:var(--paper);border-radius:var(--radius-md);padding:32px 24px;box-shadow:0 0 0 1px var(--hairline)}
+  .date{display:flex;align-items:center;justify-content:center;gap:18px;margin:12px 0 4px}
+  .date .side{font-size:16px;color:var(--muted);min-width:76px;padding-block:6px;border-block:1px solid var(--gold)}
+  .date .day{font-family:var(--serif);font-size:76px;line-height:1;color:var(--rose-deep)}
+  .year{color:var(--gold-ink);font-weight:500}
+
+  .count{display:flex;justify-content:center;gap:12px;margin-top:22px}
+  .count div{min-width:72px;padding:12px 8px;border-radius:12px;background:var(--ivory)}
+  .count b{display:block;font-family:var(--serif);font-size:32px;line-height:1.1;color:var(--ink);font-weight:700}
+  .count span{font-size:13px;color:var(--muted)}
+  .today{font-family:var(--serif);font-size:26px;color:var(--rose-deep);margin-top:18px}
+
+  .venue-name{font-family:var(--serif);font-size:36px;line-height:1.3;color:var(--ink);margin:6px 0 18px}
+  .pin{width:44px;height:44px;margin:0 auto 6px;color:var(--rose-deep)}
+
+  .closing{font-family:var(--serif);font-size:28px;line-height:1.6;color:var(--ink)}
+  .closing small{display:block;font-family:var(--sans);font-size:15px;color:var(--muted);margin-top:6px}
+
+  /* ---------- embossed card on envelope ---------- */
+  /* the stage is tall; its inner pin sticks while scroll drives the envelope */
+  .stage{position:relative;margin-inline:-20px;height:300vh;background:#e7e0d4}
+  .stage-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;
+    background:radial-gradient(90% 70% at 30% 20%, #f1ece3 0%, #e7e0d4 70%, #ddd5c7 100%)}
+  .pearls{position:absolute;inset:0;pointer-events:none}
+  .pearl{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0 25%,#ece6dc 55%,#cfc6b8 100%);box-shadow:0 1px 2px rgba(80,64,48,.25)}
+  .scene{position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%);perspective:1100px}
+  .env-back,.env-front,.env-flap{position:absolute;left:0;width:100%}
+  .env-back{z-index:1;background:#e9e2d6;border-radius:4px;box-shadow:0 26px 44px -22px rgba(70,55,40,.5)}
+  .env-back::before{content:"";position:absolute;inset:6px 6px auto;height:60%;background:#d6cdbf;clip-path:polygon(0 0,100% 0,50% 100%)}
+  .env-front{z-index:3;border-radius:0 0 4px 4px;background:linear-gradient(170deg,#fcf9f4 0%,#f1ebe1 100%);
+    clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%)}
+  .env-front::before{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(255,255,255,0) 60%,rgba(120,100,76,.08));
+    clip-path:polygon(0 0,50% 54%,0 100%)}
+  .env-flap{z-index:4;transform-origin:50% 0;background:linear-gradient(#f4efe6,#e6dfd2);clip-path:polygon(0 0,100% 0,50% 100%);backface-visibility:visible}
+  .card-mover{position:absolute;left:0;z-index:2;will-change:transform,clip-path}
+  .scroll-hint{position:absolute;left:0;right:0;bottom:28px;text-align:center;font-size:14px;color:var(--muted);transition:opacity .3s}
+  .scroll-hint::after{content:"";display:block;width:1px;height:26px;margin:8px auto 0;background:var(--gold);animation:hint 1.6s ease-in-out infinite}
+  @keyframes hint{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+  .emboss-card{--k:1;position:relative;overflow:hidden;width:300px;aspect-ratio:340/480;
+    border-radius:50% 50% 6px 6px / 35.4% 35.4% 6px 6px;
+    background:linear-gradient(160deg,#fdfbf7 0%,#f6f2ea 60%,#efe9df 100%);
+    box-shadow:0 1px 0 #fff inset,0 24px 40px -22px rgba(70,55,40,.55),0 2px 6px rgba(70,55,40,.12)}
+  .emboss{position:absolute;inset:0;width:100%;height:100%;fill:#f8f5ef;stroke:#e4dccf;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round;
+    filter:drop-shadow(-.7px -.7px 0 #fff) drop-shadow(.9px 1.1px .7px rgba(110,90,66,.32))}
+  .card-text{position:absolute;inset:16% 18% 9%;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;color:#3e2f2a}
+  .card-text p{margin:0}
+  .c-small{font-family:var(--serif);font-size:calc(13px*var(--k));color:#6e5d57}
+  .c-italic{font-family:var(--serif);font-size:calc(16px*var(--k));line-height:1.55}
+  .c-title{font-family:"Aref Ruqaa",var(--serif);font-size:calc(36px*var(--k));line-height:1.2;color:#3a2c28}
+  .c-amp{width:calc(56px*var(--k));height:14px;color:#a88d64}
+  .c-date{font-family:var(--serif);font-size:calc(16px*var(--k));line-height:1.6}
+  .c-venue{font-family:var(--serif);font-size:calc(20px*var(--k));font-weight:700}
+  .c-script{font-family:"Aref Ruqaa",var(--serif);font-size:calc(19px*var(--k));color:#5c4a43}
+
+  .music{position:fixed;bottom:18px;left:18px;z-index:20;width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;
+    background:var(--paper);color:var(--rose-deep);box-shadow:0 0 0 1px var(--hairline),0 8px 24px -10px rgba(58,44,40,.4);display:grid;place-items:center}
+  .music svg{width:22px;height:22px}
+  .music.playing svg{animation:spin 6s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* petals */
+  .petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+  .petal{position:absolute;top:-30px;width:14px;height:18px;border-radius:14px 0 14px 0;background:var(--blush);opacity:.8;animation:fall linear infinite}
+  .petal:nth-child(3n){background:#f4e4d6}
+  @keyframes fall{0%{transform:translate(0,-30px) rotate(0)}100%{transform:translate(-60px,110vh) rotate(320deg)}}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .9s ease, transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    .petals{display:none}.reveal{opacity:1;transform:none;transition:none}.music.playing svg{animation:none}.gate{transition:none}
+  }
+  @media (max-width:380px){h2{font-size:38px}.date .day{font-size:64px}.count div{min-width:62px}}
+</style>
+</head>
+<body class="locked">
+
+<div class="gate" id="gate" role="dialog" aria-label="دعوة زفاف">
+  <div class="gate-inner">
+    <div class="seal" aria-hidden="true"><svg width="54" height="40" viewBox="0 0 54 40" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="20" cy="22" r="13"/><circle cx="34" cy="22" r="13"/><path d="M30 6l4-4 4 4" stroke-width="1.8"/></svg></div>
+    <h1>أنتم مدعوون</h1>
+    <p>دعوة خاصة لكم لمشاركتنا أجمل أيامنا</p>
+    <button class="btn" id="openBtn" type="button">افتح الدعوة</button>
+  </div>
+</div>
+
+<div class="petals" aria-hidden="true" id="petals"></div>
+
+<main>
+  <section class="reveal">
+    <svg class="ornament" viewBox="0 0 140 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 12h52M88 12h52"/><path d="M70 2c6 6 6 14 0 20-6-6-6-14 0-20Z"/><circle cx="60" cy="12" r="2.2" fill="currentColor"/><circle cx="80" cy="12" r="2.2" fill="currentColor"/></svg>
+    <p class="verse">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
+    <p class="verse-ref">سورة الروم — ٢١</p>
+
+    <div class="arch"><img src="couple.jpg" alt="صورة العروسين"></div>
+
+    <h2>دعوة زفاف</h2>
+    <p class="lead">بكل الحب والفرح، يسعدنا ويشرفنا دعوتكم<br>لحضور حفل زفافنا ومشاركتنا فرحتنا</p>
+  </section>
+
+  <!-- embossed invitation card -->
+  <section class="stage" id="stage">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <g id="rose">
+          <path d="M9.3 22.5A22 22 0 1 1 33.8 51.7"/>
+          <path d="M33.8 51.7c-6 1-14-1-19-6M9.3 22.5c-1 5-1 10 2 15"/>
+          <path d="M46 35.8A17 17 0 1 1 27 13.3"/>
+          <path d="M27 13.3c6-1 13 1 17 6"/>
+          <path d="M20.8 37.7A12 12 0 1 1 41.3 34.1"/>
+          <path d="M41.3 34.1c-2 5-7 8-12 8"/>
+          <path d="M33.75 23.5A7.5 7.5 0 1 1 22.5 30"/>
+          <path d="M30 33.5A3.5 3.5 0 1 1 33 28.25"/>
+        </g>
+        <g id="leaf">
+          <path d="M0 0c8-8 22-8 30 0-8 8-22 8-30 0Z"/>
+          <path d="M2 0h26M10 0l4-3M16 0l4-3M10 0l4 3M16 0l4 3"/>
+        </g>
+        <g id="bud">
+          <path d="M0 0c-5-4-4-12 2-14 6 2 7 10 2 14Z"/><path d="M2 0v10M2 4c3-1 5-3 6-5"/>
+        </g>
+      </defs>
+    </svg>
+
+    <div class="stage-pin">
+    <div class="pearls" aria-hidden="true"></div>
+    <div class="scene" id="scene">
+    <div class="env-back" id="envBack" aria-hidden="true"></div>
+    <div class="env-front" id="envFront" aria-hidden="true"></div>
+    <div class="env-flap" id="envFlap" aria-hidden="true"></div>
+
+    <div class="card-mover" id="cardMover">
+    <article class="emboss-card" id="embossCard">
+      <svg class="emboss" viewBox="0 0 340 480" preserveAspectRatio="none" aria-hidden="true">
+        <!-- top-right cluster -->
+        <use href="#rose" transform="translate(222 10) scale(1.25)"/>
+        <use href="#rose" transform="translate(270 70) scale(1.05)"/>
+        <use href="#rose" transform="translate(178 4) scale(.75)"/>
+        <use href="#rose" transform="translate(286 132) scale(.9)"/>
+        <use href="#leaf" transform="translate(168 40) rotate(-20)"/>
+        <use href="#leaf" transform="translate(300 196) rotate(100)"/>
+        <use href="#bud" transform="translate(304 238)"/>
+        <use href="#bud" transform="translate(318 262) scale(.8)"/>
+        <!-- left cascade -->
+        <use href="#rose" transform="translate(4 112) scale(1.05)"/>
+        <use href="#rose" transform="translate(16 170) scale(.85)"/>
+        <use href="#rose" transform="translate(0 222) scale(.95)"/>
+        <use href="#leaf" transform="translate(30 104) rotate(-60)"/>
+        <use href="#leaf" transform="translate(52 236) rotate(70)"/>
+        <use href="#bud" transform="translate(20 300)"/>
+        <use href="#bud" transform="translate(34 326) scale(.8)"/>
+        <use href="#bud" transform="translate(12 344) scale(.7)"/>
+        <!-- bottom-right cluster -->
+        <use href="#rose" transform="translate(250 390) scale(1.15)"/>
+        <use href="#rose" transform="translate(212 438) scale(.7)"/>
+        <use href="#rose" transform="translate(290 340) scale(.85)"/>
+        <use href="#leaf" transform="translate(176 466) rotate(-10)"/>
+        <use href="#leaf" transform="translate(300 330) rotate(-80)"/>
+      </svg>
+      <div class="card-text">
+        <p class="c-small">بسم الله الرحمن الرحيم</p>
+        <p class="c-italic">بكل الحب والسعادة<br>ندعوكم لمشاركتنا</p>
+        <p class="c-title">حفل زفافنا</p>
+        <svg class="c-amp" viewBox="0 0 60 16" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M0 8h20M40 8h20"/><path d="M30 1c4 4 4 10 0 14-4-4-4-10 0-14Z"/></svg>
+        <p class="c-date">الأربعاء<br>١٤ أكتوبر ٢٠٢٦</p>
+        <p class="c-venue">قاعة القصر</p>
+        <p class="c-script">حضوركم يكمّل فرحتنا</p>
+      </div>
+    </article>
+    </div>
+    </div>
+    <p class="scroll-hint" id="scrollHint">مرّر لفتح الظرف</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="card">
+      <p class="eyebrow">موعدنا</p>
+      <div class="date">
+        <span class="side">الأربعاء</span>
+        <span class="day">١٤</span>
+        <span class="side">أكتوبر</span>
+      </div>
+      <p class="year">٢٠٢٦</p>
+      <div class="count" id="count" aria-live="polite">
+        <div><b id="cd-d">٠</b><span>يوم</span></div>
+        <div><b id="cd-h">٠</b><span>ساعة</span></div>
+        <div><b id="cd-m">٠</b><span>دقيقة</span></div>
+        <div><b id="cd-s">٠</b><span>ثانية</span></div>
+      </div>
+      <p class="today" id="today" hidden>النهارده الفرح 🤍</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="card">
+      <svg class="pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+      <p class="eyebrow">المكان</p>
+      <p class="venue-name">قاعة القصر</p>
+      <a class="btn" href="https://share.google/zZCkS3PRlWkLbMBNr" target="_blank" rel="noopener">افتح اللوكيشن على الخريطة</a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <svg class="ornament" viewBox="0 0 140 24" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="M0 12h52M88 12h52"/><path d="M70 2c6 6 6 14 0 20-6-6-6-14 0-20Z"/><circle cx="60" cy="12" r="2.2" fill="currentColor"/><circle cx="80" cy="12" r="2.2" fill="currentColor"/></svg>
+    <p class="closing" style="margin-top:18px">حضوركم يكمّل فرحتنا<small>في انتظاركم بكل الحب</small></p>
+  </section>
+</main>
+
+<button class="music" id="music" type="button" aria-label="تشغيل الموسيقى" aria-pressed="false">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+</button>
+<audio id="song" src="song.mp3#t=20" preload="auto"></audio>
+
+<script>
+(function(){
+  var gate=document.getElementById('gate'), song=document.getElementById('song'), music=document.getElementById('music');
+  function setPlaying(on){music.classList.toggle('playing',on);music.setAttribute('aria-pressed',on);music.setAttribute('aria-label',on?'إيقاف الموسيقى':'تشغيل الموسيقى')}
+  var started=false;song.addEventListener('ended',function(){song.currentTime=20;song.play()});function seek20(){try{song.currentTime=20}catch(e){}}song.addEventListener('playing',function(){if(!started){started=true;if(song.currentTime<19)seek20()}});function play(){if(!started){if(song.readyState>=1)seek20();else song.addEventListener('loadedmetadata',seek20,{once:true})}var p=song.play(); if(p&&p.then){p.then(function(){setPlaying(true)}).catch(function(){setPlaying(false)})}else setPlaying(true)}
+  document.getElementById('openBtn').addEventListener('click',function(){
+    gate.classList.add('open');document.body.classList.remove('locked');play();
+    document.querySelectorAll('.reveal').forEach(function(el){io?io.observe(el):el.classList.add('in')});
+  });
+  music.addEventListener('click',function(){ if(song.paused) play(); else {song.pause();setPlaying(false)} });
+
+  var io='IntersectionObserver' in window ? new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15}) : null;
+
+  // petals
+  var box=document.getElementById('petals');
+  for(var i=0;i<14;i++){var s=document.createElement('span');s.className='petal';s.style.left=(Math.random()*100)+'%';
+    s.style.animationDuration=(9+Math.random()*9)+'s';s.style.animationDelay=(-Math.random()*15)+'s';s.style.transform='scale('+(.6+Math.random()*.7)+')';box.appendChild(s)}
+
+  // pearls on the card stage
+  var pb=document.querySelector('.pearls');
+  if(pb){for(var j=0;j<22;j++){var q=document.createElement('span');q.className='pearl';var z=4+Math.random()*6;
+    q.style.width=q.style.height=z+'px';q.style.left=(Math.random()*100)+'%';q.style.top=(Math.random()*100)+'%';pb.appendChild(q)}}
+
+  // envelope: scroll opens the flap, slides the card out, then drops the envelope away
+  var stage=document.getElementById('stage');
+  if(stage){
+    var scene=document.getElementById('scene'), back=document.getElementById('envBack'), front=document.getElementById('envFront'),
+        flap=document.getElementById('envFlap'), mover=document.getElementById('cardMover'), card=document.getElementById('embossCard'),
+        hint=document.getElementById('scrollHint'), L={};
+    var clamp=function(v){return v<0?0:v>1?1:v}, seg=function(p,a,b){return clamp((p-a)/(b-a))},
+        ease=function(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2}, lerp=function(a,b,t){return a+(b-a)*t};
+    function layout(){
+      var vh=stage.querySelector('.stage-pin').clientHeight, vw=document.documentElement.clientWidth;
+      var cw=Math.min(300, vw-64, (vh-48)/1.73); cw=Math.max(cw,200);
+      var ch=cw*480/340, ew=cw+36, eh=ew*.7;
+      scene.style.width=ew+'px'; card.style.width=cw+'px'; card.style.setProperty('--k',(cw/300).toFixed(3));
+      mover.style.left='18px';
+      [back,front].forEach(function(el){el.style.height=eh+'px'}); flap.style.height=(eh*.6)+'px';
+      var total=ch+.45*eh, top1=(vh-total)/2;
+      L={vh:vh,ch:ch,eh:eh,top1:top1,env0:top1+ch-.55*eh,center:(vh-ch)/2};
+      update();
+    }
+    function update(){
+      var r=stage.getBoundingClientRect(), span=stage.offsetHeight-L.vh, p=clamp(-r.top/span);
+      var a=ease(seg(p,.04,.24)), rise=ease(seg(p,.22,.62)), drop=ease(seg(p,.64,.92));
+      var envTop=lerp(L.env0, L.vh+L.eh*.6+40, drop);
+      var cardIn=L.env0+10, cardOut=L.top1, cardTop=lerp(lerp(cardIn,cardOut,rise), L.center, drop);
+      back.style.top=front.style.top=flap.style.top=envTop+'px';
+      flap.style.transform='rotateX('+(a*180)+'deg)';
+      flap.style.zIndex=a<.5?4:0;
+      var hidden=Math.max(0,(cardTop+L.ch)-(envTop+L.eh-2));
+      mover.style.transform='translateY('+cardTop+'px) rotate('+(drop*1.5)+'deg)';
+      mover.style.clipPath='inset(-60px -60px '+hidden+'px -60px)';
+      hint.style.opacity=p>.03?0:1;
+    }
+    layout(); addEventListener('resize',layout); addEventListener('scroll',function(){requestAnimationFrame(update)},{passive:true});
+  }
+
+  // countdown — to the start of Wednesday 14 Oct 2026 (Cairo time)
+  var target=new Date('2026-10-14T00:00:00+03:00').getTime();
+  var ar=function(n){return String(n).replace(/\d/g,function(d){return '٠١٢٣٤٥٦٧٨٩'[d]})};
+  function tick(){
+    var diff=target-Date.now();
+    if(diff<=0){document.getElementById('count').hidden=true;document.getElementById('today').hidden=false;return}
+    var s=Math.floor(diff/1000);
+    document.getElementById('cd-d').textContent=ar(Math.floor(s/86400));
+    document.getElementById('cd-h').textContent=ar(Math.floor(s%86400/3600));
+    document.getElementById('cd-m').textContent=ar(Math.floor(s%3600/60));
+    document.getElementById('cd-s').textContent=ar(s%60);
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
